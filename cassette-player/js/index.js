@@ -19,25 +19,25 @@ $(document).ready(function () {
 				totalTime += trackDuration;
 			}
 			
-	}, 2000);
+	}, 4000);
 	setTimeout(function() {
 		totalTime *= 1000;
 		document.getElementById("loading").style.display = "none";
-	}, 3000);
+	}, 5000);
 });
 
 // ****GLOBALS****
 var totalTime = 0;
 var trackCount = 0;
 var trackList = [
-	["Vintage Electro Pop", "Frankum"],
-	["80s Mean", "FurbyGuy"],
-	["Techno 80", "Frankum & Frankumjay"],
-	["Neutrino", "K-Alpha"],
-	["No Solution", "K-Alpha"],
-	["Combustion (Experiment)", "K-Alpha"],
-	["Pathologically (loop)", "K-Alpha"],
-	["Next Step Into the Darkness", "K-Alpha"]
+	["Take On Me", "a-HA"],
+	["Heat of the Moment", "Asia"],
+	["Don't Bring Me Down", "Electric Light Orchestra"],
+	["Bad Medicine", "Bon Jovi"],
+	["Sweet Dreams", "Eurythmics"],
+	["Lift Me Up", "Jeff Lynne"],
+	["You're The Inspiration", "Chicago"],
+	["Cruel Summer", "Bananarama"]
 ];
 var totalTracks = trackList.length;
 var rotateAngle = [0,0]; // we'll need this later in the pause button for the gears
@@ -269,6 +269,7 @@ $("#rewindBtn").click(function() {
 	$('audio[id^="sound"]')[trackCount].pause();
 	playFF();
 	setTimeout(function() {	
+		playBtnPressed();
 		stopGears();
 		
 		//animations

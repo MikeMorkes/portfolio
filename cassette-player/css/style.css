@@ -25,6 +25,15 @@ body {
 	line-height: 414px;
 }
 
+#loading p {
+	color: #fff;
+	font-family: sans-serif;
+	vertical-align: middle;
+	font-size: 10px;
+	line-height: 42px;
+	margin-top: -210px;
+}
+
 .playerDoor {
 	z-index: 99;
 	position: absolute;

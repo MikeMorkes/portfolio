@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>cassette player</title>
+  <title>cassette player 80s</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
@@ -16,6 +16,7 @@
   <div class=""><!-- this div is used to force orientation to landscape - do not delete -->
 <div id="loading"><!-- this is needed to give the app time to ascertain the length of all the songs for calculating tape length for animations, as well as giving app time to preload machine noises and first song -->
 	<h4>LOAIDNG...PLEASE WAIT...</h4>
+	<p><em>Songs are for educational use only.</em></p>
 </div>
  <div id="player-controls">
   <button class="btn btn-default btn-cassette" type="submit" id="rewindBtn">REWIND</button><button class="btn btn-default btn-cassette" type="submit" id="playBtn">PLAY</button><button class="btn btn-default btn-cassette" type="submit" id="pauseBtn">PAUSE</button>
@@ -25,7 +26,7 @@
 
  <div class="playerDoor">
   <div class="title" id="title">
-   AWESOME MIX
+   80s MIX
   </div>
   <div class="artist" id="artist">
    &nbsp;
@@ -50,36 +51,36 @@
 
  <!-- MUSIC -->
 
- <audio id="sound1">
-    <source src="https://www.freesound.org/data/previews/384/384468_2305278-lq.mp3" type="audio/mp3" />
+ <audio id="sound1" preload="auto">
+    <source src="http://www.mikemorkes.com/codepen/cassette/music/take-on-me.mp3" type="audio/mp3" />
 	</audio>
 
- <audio id="sound2">
-    <source src="https://www.freesound.org/data/previews/388/388102_5829171-lq.mp3" type="audio/mp3" />
+ <audio id="sound2" preload="metadata">
+    <source src="http://www.mikemorkes.com/codepen/cassette/music/heat-of-the-moment.mp3" type="audio/mp3" />
 	</audio>
 
- <audio id="sound3">
-    <source src="https://www.freesound.org/data/previews/346/346193_2305278-lq.mp3" type="audio/mp3" />
+ <audio id="sound3" preload="metadata">
+    <source src="http://www.mikemorkes.com/codepen/cassette/music/dont-bring-me-down.mp3" type="audio/mp3" />
 	</audio>
 
- <audio id="sound4">
-    <source src="http://www.bigsoundbank.com/sounds/mp3/0788.mp3" type="audio/mp3" />
+ <audio id="sound4" preload="metadata">
+    <source src="http://www.mikemorkes.com/codepen/cassette/music/bad-medicine.mp3" type="audio/mp3" />
 	</audio>
 
  <audio id="sound5" preload="metadata">
-    <source src="http://www.bigsoundbank.com/sounds/mp3/0783.mp3" type="audio/mp3" />
+    <source src="http://www.mikemorkes.com/codepen/cassette/music/sweet-dreams-are-made.mp3" type="audio/mp3" />
 	</audio>
 
  <audio id="sound6" preload="metadata">
-    <source src="http://www.bigsoundbank.com/sounds/mp3/0752.mp3" type="audio/mp3" />
+    <source src="http://www.mikemorkes.com/codepen/cassette/music/lift-me-up.mp3" type="audio/mp3" />
 	</audio>
 
  <audio id="sound7" preload="metadata">
-    <source src="http://www.bigsoundbank.com/sounds/mp3/0782.mp3" type="audio/mp3" />
+    <source src="http://www.mikemorkes.com/codepen/cassette/music/youre-the-inspiration.mp3" type="audio/mp3" />
 	</audio>
 
  <audio id="sound8" preload="metadata">
-    <source src="http://www.bigsoundbank.com/sounds/mp3/0733.mp3" type="audio/mp3" />
+    <source src="http://www.mikemorkes.com/codepen/cassette/music/cruel-summer.mp3" type="audio/mp3" />
 	</audio>
 	
 	
