@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>cassette player</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <div class=""><!-- this div is used to force orientation to landscape - do not delete -->
+<div id="loading"><!-- this is needed to give the app time to ascertain the length of all the songs for calculating tape length for animations, as well as giving app time to preload machine noises and first song -->
+	<h4>LOAIDNG...PLEASE WAIT...</h4>
+</div>
+ <div id="player-controls">
+  <button class="btn btn-default btn-cassette" type="submit" id="rewindBtn">REWIND</button><button class="btn btn-default btn-cassette" type="submit" id="playBtn">PLAY</button><button class="btn btn-default btn-cassette" type="submit" id="pauseBtn">PAUSE</button>
+  <button
+   class="btn btn-default btn-cassette" type="submit" id="fastForwardBtn">SKIP</button>
+ </div>
+
+ <div class="playerDoor">
+  <div class="title" id="title">
+   AWESOME MIX
+  </div>
+  <div class="artist" id="artist">
+   &nbsp;
+  </div>
+ </div>
+
+ <div class="gearHolder">
+  <span class="helper"></span><img id="gear" class="play-gear" src="http://www.mikemorkes.com/codepen/cassette/spool-gear.svg" />
+ </div>
+<div class="spoolHolder">
+  <span class="helper"></span><img class="left-tape" id="leftTape" src="http://www.mikemorkes.com/codepen/cassette/tape-spool-left.svg" />
+ </div>
+
+ <div class="gearHolder2">
+  <span class="helper"></span><img id="gear2" class="play-gear" src="http://www.mikemorkes.com/codepen/cassette/spool-gear.svg" />
+ </div>
+	
+<div class="spoolHolder2">
+  <span class="helper"></span><img class="right-tape" id="rightTape" src="http://www.mikemorkes.com/codepen/cassette/tape-spool-right.svg" />
+ </div>
+
+
+ <!-- MUSIC -->
+
+ <audio id="sound1">
+    <source src="https://www.freesound.org/data/previews/384/384468_2305278-lq.mp3" type="audio/mp3" />
+	</audio>
+
+ <audio id="sound2">
+    <source src="https://www.freesound.org/data/previews/388/388102_5829171-lq.mp3" type="audio/mp3" />
+	</audio>
+
+ <audio id="sound3">
+    <source src="https://www.freesound.org/data/previews/346/346193_2305278-lq.mp3" type="audio/mp3" />
+	</audio>
+
+ <audio id="sound4">
+    <source src="http://www.bigsoundbank.com/sounds/mp3/0788.mp3" type="audio/mp3" />
+	</audio>
+
+ <audio id="sound5" preload="metadata">
+    <source src="http://www.bigsoundbank.com/sounds/mp3/0783.mp3" type="audio/mp3" />
+	</audio>
+
+ <audio id="sound6" preload="metadata">
+    <source src="http://www.bigsoundbank.com/sounds/mp3/0752.mp3" type="audio/mp3" />
+	</audio>
+
+ <audio id="sound7" preload="metadata">
+    <source src="http://www.bigsoundbank.com/sounds/mp3/0782.mp3" type="audio/mp3" />
+	</audio>
+
+ <audio id="sound8" preload="metadata">
+    <source src="http://www.bigsoundbank.com/sounds/mp3/0733.mp3" type="audio/mp3" />
+	</audio>
+	
+	
+
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://rawgit.com/wilq32/jqueryrotate/master/jQueryRotate.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>
