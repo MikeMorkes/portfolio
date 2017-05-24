@@ -19,10 +19,9 @@ $(document).ready(function () {
 				totalTime += trackDuration;
 			}
 			
-	}, 1500);
-	setTimeout(function() {	
+	}, 2000);
+	setTimeout(function() {
 		totalTime *= 1000;
-		totalTime *= .25;
 		document.getElementById("loading").style.display = "none";
 	}, 3000);
 });
@@ -161,20 +160,45 @@ function tapeAnimation() {
 	$("#rightTape").animate({width: '100px', height: '100px'}, totalTime, 'linear');	
 }
 
+// calculations for FF and RW tape are fairly accurate; however, they don't account for how far into playing the current song you are when you hit FF or RW. This could probably be accounted for by doing a .currentTime check and plugging that into the calculation. Will work on that later...
 function tapeAnimationFast() {
 	var trackDurationFF = $('audio[id^="sound"]')[trackCount].duration;
 	trackDurationFF = Math.round(trackDurationFF);
-	trackDurationFF *= 350;
-	$("#leftTape").animate({width: '300px', height: '300px'}, trackDurationFF, 'linear');
-	$("#rightTape").animate({width: '100px', height: '100px'}, trackDurationFF, 'linear');	
+	// get current height of both tape spools and round them off
+	var widthFF = $( '#leftTape' ).height(); 
+	var widthFFright = $( '#rightTape' ).height();
+	widthFF = Math.round(widthFF);
+	widthFFright = Math.round(widthFFright);
+	//calculate the amount of scaling to do based on length of song
+	// initial clculation divides the total time by the difference between an empty spool and a full spool, then removes the extra zeros
+	var durAdd = Math.round((totalTime / 200) * .001);
+	// then we divide the track length by the previous calculation and round it off, which tells us how much to scale up or down in the time it takes for the FF sound to play
+	durAdd = Math.round(trackDurationFF / durAdd);
+	// add or subtract durAdd to or from width amount, and plug them into the animation variables for the FF animation
+	widthFF += durAdd;
+	widthFFright -= durAdd;
+	$("#leftTape").animate({width: widthFF, height: widthFF}, 4500, 'linear');
+	$("#rightTape").animate({width: widthFFright, height: widthFFright}, 4500, 'linear');	
 }
 
 function tapeAnimationReverse() {
-	var trackDurationRV = $('audio[id^="sound"]')[trackCount].duration;
+	var trackDurationRV = $('audio[id^="sound"]')[trackCount-1].duration;
 	trackDurationRV = Math.round(trackDurationRV);
-	trackDurationRV *= 100;	
-	$("#leftTape").animate({width: '100px', height: '100px'}, trackDurationRV, 'linear');
-	$("#rightTape").animate({width: '300px', height: '300px'}, trackDurationRV, 'linear');	
+	// get current height of both tape spools and round them off
+	var widthRV = $( '#leftTape' ).height(); 
+	var widthRVright = $( '#rightTape' ).height();
+	widthRV = Math.round(widthRV);
+	widthRVright = Math.round(widthRVright);
+	//calculate the amount of scaling to do based on length of song
+	// initial clculation divides the total time by the difference between an empty spool and a full spool, then removes the extra zeros
+	var durAdd = Math.round((totalTime / 200) * .001);
+	// then we divide the track length by the previous calculation and round it off, which tells us how much to scale up or down in the time it takes for the FF sound to play
+	durAdd = Math.round(trackDurationRV / durAdd);
+	// add or subtract durAdd to or from width amount, and plug them into the animation variables for the FF animation
+	widthRV -= durAdd;
+	widthRVright += durAdd;
+	$("#leftTape").animate({width: widthRV, height: widthRV}, 4500, 'linear');
+	$("#rightTape").animate({width: widthRVright, height: widthRVright}, 4500, 'linear');		
 }
 
 
