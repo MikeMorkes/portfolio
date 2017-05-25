@@ -56,12 +56,14 @@ var stopSound = new Audio(
 var reset = function() {
 	$("#playBtn").removeClass("pressed");
 	$("#pauseBtn").removeClass("pressed");
-	document.getElementById("title").innerHTML = "Vintage Electro Pop";
-	document.getElementById("artist").innerHTML = "Frankum";
+	document.getElementById("title").innerHTML = "80s MIX";
+	document.getElementById("artist").innerHTML = "&nbsp;";
 	trackCount = 0;
 	rotateAngle = [0,0];
+	stopGears();
 	$("#leftTape").css({ width: '100px', height: '100px' });
 	$("#rightTape").css({ width: '300px', height: '300px' });
+	$('audio[id^="sound"]')[trackCount].currentTime = 0;
 };
 
 
@@ -163,7 +165,12 @@ function tapeAnimation() {
 // calculations for FF and RW tape are fairly accurate; however, they don't account for how far into playing the current song you are when you hit FF or RW. This could probably be accounted for by doing a .currentTime check and plugging that into the calculation. Will work on that later...
 function tapeAnimationFast() {
 	var trackDurationFF = $('audio[id^="sound"]')[trackCount].duration;
+	/* console.log(trackDurationFF);
+	var currentTrackTime = $('audio[id^="sound"]')[trackCount].currentTime;
+	console.log(currentTrackTime);
+	trackDurationFF -= currentTrackTime; */
 	trackDurationFF = Math.round(trackDurationFF);
+	console.log(trackDurationFF);
 	// get current height of both tape spools and round them off
 	var widthFF = $( '#leftTape' ).height(); 
 	var widthFFright = $( '#rightTape' ).height();
@@ -177,8 +184,10 @@ function tapeAnimationFast() {
 	// add or subtract durAdd to or from width amount, and plug them into the animation variables for the FF animation
 	widthFF += durAdd;
 	widthFFright -= durAdd;
-	$("#leftTape").animate({width: widthFF, height: widthFF}, 4500, 'linear');
-	$("#rightTape").animate({width: widthFFright, height: widthFFright}, 4500, 'linear');	
+	
+	// 4200 is roughly howlong the the "whir" noise plays between the two clunk noises in the sound efect 
+	$("#leftTape").animate({width: widthFF, height: widthFF}, 4200, 'linear');
+	$("#rightTape").animate({width: widthFFright, height: widthFFright}, 4200, 'linear');	
 }
 
 function tapeAnimationReverse() {
@@ -197,8 +206,8 @@ function tapeAnimationReverse() {
 	// add or subtract durAdd to or from width amount, and plug them into the animation variables for the FF animation
 	widthRV -= durAdd;
 	widthRVright += durAdd;
-	$("#leftTape").animate({width: widthRV, height: widthRV}, 4500, 'linear');
-	$("#rightTape").animate({width: widthRVright, height: widthRVright}, 4500, 'linear');		
+	$("#leftTape").animate({width: widthRV, height: widthRV}, 4200, 'linear');
+	$("#rightTape").animate({width: widthRVright, height: widthRVright}, 4200, 'linear');		
 }
 
 
@@ -250,7 +259,7 @@ $("#fastForwardBtn").click(function() {
 			
 			$('audio[id^="sound"]')[trackCount].currentTime = 0;
 			playSound();
-		}, 4500);
+		}, 4200);
 		
 	} else {
 		// end of tape. Real life tape player would stop (unless you could afford the fancy ones that auto-rewound or played the back side), so we'll do the same.
@@ -311,7 +320,7 @@ $("#rewindBtn").click(function() {
 		
 			playSound();
 		}
-	}, 5000);
+	}, 4200);
 });
 
 // pause button
